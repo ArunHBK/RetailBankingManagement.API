@@ -30,10 +30,6 @@ namespace BankManagementSystem.Controllers
         [Route("Login"),AllowAnonymous]
         public async Task<ActionResult> Authentication(UserLoginDto user)
         {
-
-
-           // if (user.Username == "" || user.Password == "") return BadRequest("Username or password is not provided");
-
             var result = await _authRepo.Login(user);
 
             if (result.Status)

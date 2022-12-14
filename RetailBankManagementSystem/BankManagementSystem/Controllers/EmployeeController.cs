@@ -33,9 +33,6 @@ namespace BankManagementSystem.Controllers
         public async Task<ActionResult> Authentication(UserLoginDto user)
         {
 
-
-           // if (user.Username == "" || user.Password == "") return BadRequest("Username or password is not provided");
-
             ResponseObject result = await _authRepo.Login(user);
 
             if (result.Status)
@@ -52,7 +49,6 @@ namespace BankManagementSystem.Controllers
         [Route("UserRegister")]
         public async Task<ActionResult> Registration(UserDetailDto user)
         {
-           // if (user.Username == "" || user.Password == "") return BadRequest("Username or password is not provided");
 
             bool result = await _authRepo.UserRegistration(user);
 
@@ -83,7 +79,6 @@ namespace BankManagementSystem.Controllers
         }
 
         [HttpDelete("UserAccountDelete")]
-        //  [Route("api/{Username}")]
         public async Task<ActionResult> UserDelete(string Username)
         {
             bool result = await _authRepo.AccountDelete(Username);
